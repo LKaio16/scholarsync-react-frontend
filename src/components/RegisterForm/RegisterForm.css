@@ -1,0 +1,130 @@
+.register-container {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a8cff;
+}
+
+.form-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 49px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 35px 0px 100px 0px;
+}
+
+.logo {
+  margin-bottom: 10px;
+  width: 48%;
+}
+
+.title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.labels-container {
+  width: 60%;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  color: #666;
+  font-weight: normal;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  background-color: #d6dde3;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+
+.button-login {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px 20px 30px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.existingUser-container {
+  text-align: center;
+  color: #b0bac3;
+}
+
+.existingUser-container .disclaimer {
+  color: #4a4a4a;
+}
+
+.existingUser-container a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #6ebaff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .form-container {
+    width: 80%; /* Aumenta a largura em dispositivos menores */
+    padding: 30px;
+  }
+
+  .logo {
+    width: 60%; /* Aumenta o tamanho da logo para melhor visibilidade */
+  }
+
+  .labels-container,
+  .title {
+    width: 80%; /* Aumenta a largura do título e labels */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 95%; /* Quase toda a largura da tela */
+    border-radius: 25px; /* Ajusta o border-radius para telas menores */
+  }
+
+  .logo {
+    width: 70%;
+  }
+
+  .title,
+  .labels-container {
+    width: 90%; /* Mais largura para melhor leitura */
+  }
+
+  .button-login {
+    padding: 12px; /* Reduz o padding do botão */
+  }
+}
+
+@media (min-width: 1500px) {
+  .form-container {
+    width: 910px;
+  }
+}
