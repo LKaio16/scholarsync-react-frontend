@@ -9,6 +9,11 @@ function LoginContainer() {
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
+
+  const direcionaRegister = (event) => {
+    navigate("/register");
+  };
 
   async function handleSubmit(event) {
     try {
@@ -27,16 +32,15 @@ function LoginContainer() {
       };
       const token = response.data.token;
       login(token, usuarioLogado);
-      //   navigate("/");
-      console.log(response);
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      setError(error.response.data);
     }
   }
 
   return {
-    states: { username, password },
-    functions: { setUsername, setPassword, handleSubmit },
+    states: { username, password, error },
+    functions: { setUsername, setPassword, handleSubmit, direcionaRegister },
   };
 }
 

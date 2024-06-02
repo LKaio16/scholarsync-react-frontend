@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.logo {
+.login-container .logo {
   margin-bottom: 10px;
   width: 48%;
 }
@@ -93,7 +93,7 @@ button:hover {
     padding: 30px;
   }
 
-  .logo {
+  .login-container .logo {
     width: 60%; /* Aumenta o tamanho da logo para melhor visibilidade */
   }
 
@@ -104,12 +104,12 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  .form-container {
+  .login-container .form-container {
     width: 95%; /* Quase toda a largura da tela */
     border-radius: 25px; /* Ajusta o border-radius para telas menores */
   }
 
-  .logo {
+  .login-container .logo {
     width: 70%;
   }
 
@@ -124,7 +124,7 @@ button:hover {
 }
 
 @media (min-width: 1500px) {
-  .form-container {
+  .login-container .form-container {
     width: 910px;
   }
 }
