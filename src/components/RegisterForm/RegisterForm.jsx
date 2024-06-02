@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./RegisterForm.css";
 import Logo from "../../../src/assets/images/Logo-SchorlarSync.svg";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 function RegisterForm({ onRegister }) {
   const [username, setUsername] = useState("");
@@ -8,6 +13,11 @@ function RegisterForm({ onRegister }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("");
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,9 +39,9 @@ function RegisterForm({ onRegister }) {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          <label htmlFor="username">Nome</label>
+          <label htmlFor="name">Nome</label>
           <input
-            id="username"
+            id="name"
             type="text"
             placeholder="Insira seu nome..."
             value={name}
@@ -47,14 +57,31 @@ function RegisterForm({ onRegister }) {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <label htmlFor="password">Confirma Senha</label>
+          <label htmlFor="confirmPassword">Confirma Senha</label>
           <input
-            id="password"
+            id="confirmPassword"
             type="password"
             placeholder="Insira sua senha..."
             value={confirmPassword}
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          <label htmlFor="role">Qual sua atribuição </label>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Cargo</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Age"
+                onChange={handleChange}
+              >
+                <MenuItem value={10}>Aluno</MenuItem>
+                <MenuItem value={20}>Professor</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
 
           <button className="button-login" type="submit">
             Cadastrar
