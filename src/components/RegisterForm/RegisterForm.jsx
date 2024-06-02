@@ -6,37 +6,33 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import RegisterContainer from "./RegisterContainer";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
 
-function RegisterForm({ onRegister }) {
-  const [username, setUsername] = useState("");
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onRegister(username, name, password, confirmPassword, role);
-  };
-
+function RegisterForm() {
+  const { states, functions } = RegisterContainer();
   return (
     <div className="register-container">
       <div className="form-container">
+        {states.error !== null && (
+          <Alert
+            severity="error"
+            style={{ marginBottom: "20px", borderRadius: "40px" }}
+          >
+            {states.error}
+          </Alert>
+        )}
         <img src={Logo} alt="Logo" className="logo" />{" "}
         <h2 className="title">Registre sua conta</h2>
-        <form className="labels-container" onSubmit={handleSubmit}>
+        <form className="labels-container" onSubmit={functions.handleSubmit}>
           <label htmlFor="username">Usuário</label>
           <input
             id="username"
             type="text"
             placeholder="Insira seu usuário..."
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={states.username}
+            onChange={(e) => functions.setUsername(e.target.value)}
           />
 
           <label htmlFor="name">Nome</label>
@@ -44,8 +40,17 @@ function RegisterForm({ onRegister }) {
             id="name"
             type="text"
             placeholder="Insira seu nome..."
-            value={name}
-            onChange={(e) => setUsername(e.target.value)}
+            value={states.name}
+            onChange={(e) => functions.setName(e.target.value)}
+          />
+
+          <label htmlFor="name">Email</label>
+          <input
+            id="email"
+            type="text"
+            placeholder="Insira seu email..."
+            value={states.email}
+            onChange={(e) => functions.setEmail(e.target.value)}
           />
 
           <label htmlFor="password">Senha</label>
@@ -53,17 +58,17 @@ function RegisterForm({ onRegister }) {
             id="password"
             type="password"
             placeholder="Insira sua senha..."
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={states.password}
+            onChange={(e) => functions.setPassword(e.target.value)}
           />
 
           <label htmlFor="confirmPassword">Confirma Senha</label>
           <input
             id="confirmPassword"
             type="password"
+            value={states.confirmPassword}
             placeholder="Insira sua senha..."
-            value={confirmPassword}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => functions.setConfirmPassword(e.target.value)}
           />
 
           <label htmlFor="role">Qual sua atribuição </label>
@@ -73,24 +78,24 @@ function RegisterForm({ onRegister }) {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={age}
+                value={states.role}
                 label="Age"
-                onChange={handleChange}
+                onChange={functions.handleChange}
               >
-                <MenuItem value={10}>Aluno</MenuItem>
-                <MenuItem value={20}>Professor</MenuItem>
+                <MenuItem value={"ROLE_USER"}>Aluno</MenuItem>
+                <MenuItem value={"ROLE_MODERATOR"}>Professor</MenuItem>
               </Select>
             </FormControl>
           </Box>
 
-          <button className="button-login" type="submit">
+          <button className="button-register" type="submit">
             Cadastrar
           </button>
         </form>
         <div className="existingUser-container">
           <h4>- OU -</h4>
           <div className="disclaimer">
-            Já possui conta? <a href="">Entre</a>
+            Já possui conta? <a onClick={functions.direcionaLogin}>Entre</a>
           </div>
         </div>
       </div>

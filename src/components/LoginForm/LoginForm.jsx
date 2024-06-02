@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import Logo from "../../../src/assets/images/Logo-SchorlarSync.svg";
 import LoginContainer from "./LoginContainer";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
 
 function LoginForm() {
   const { states, functions } = LoginContainer();
   return (
     <div className="login-container">
       <div className="form-container">
+        {states.error !== null && (
+          <Alert
+            severity="error"
+            style={{ marginBottom: "20px", borderRadius: "40px" }}
+          >
+            {states.error}
+          </Alert>
+        )}
         <img src={Logo} alt="Logo" className="logo" />{" "}
         <h2 className="title">Entre em sua conta</h2>
         <form className="labels-container" onSubmit={functions.handleSubmit}>
@@ -34,7 +44,8 @@ function LoginForm() {
         <div className="existingUser-container">
           <h4>- OU -</h4>
           <div className="disclaimer">
-            Não possui conta? <a href="">Cadastre-se</a>
+            Não possui conta?{" "}
+            <a onClick={functions.direcionaRegister}>Cadastre-se</a>
           </div>
         </div>
       </div>

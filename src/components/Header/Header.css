@@ -1,0 +1,12 @@
+.header-container .logo {
+  margin-left: 4vw;
+  width: 35%;
+  max-width: 300px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px;
+}

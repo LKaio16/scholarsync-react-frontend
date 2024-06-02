@@ -2,8 +2,9 @@
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: #2a8cff;
+  height: 100vh;
+  overflow: auto;
 }
 
 .register-container .form-container {
@@ -16,9 +17,10 @@
   flex-direction: column;
   align-items: center;
   margin: 35px 0px 100px 0px;
+  height: fit-content;
 }
 
-.logo {
+.register-container .logo {
   margin-bottom: 10px;
   width: 48%;
 }
@@ -53,7 +55,7 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.button-login {
+.button-register {
   width: 100%;
   margin-top: 30px;
   padding: 15px;
@@ -86,14 +88,22 @@ button:hover {
   color: #6ebaff;
 }
 
+a {
+  cursor: pointer;
+}
+
+html {
+  background-color: #2a8cff;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
-  .form-container {
+  .register-container .form-container {
     width: 80%; /* Aumenta a largura em dispositivos menores */
     padding: 30px;
   }
 
-  .logo {
+  .register-container .logo {
     width: 60%; /* Aumenta o tamanho da logo para melhor visibilidade */
   }
 
@@ -104,12 +114,12 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  .form-container {
+  .register-container .form-container {
     width: 95%; /* Quase toda a largura da tela */
     border-radius: 25px; /* Ajusta o border-radius para telas menores */
   }
 
-  .logo {
+  .register-container .logo {
     width: 70%;
   }
 
@@ -124,7 +134,7 @@ button:hover {
 }
 
 @media (min-width: 1500px) {
-  .form-container {
+  .register-container .form-container {
     width: 910px;
   }
 }
