@@ -1,0 +1,34 @@
+
+.App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .formulario {
+    margin-bottom: 20px;
+  }
+  
+  .formulario input, .formulario button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  .evento-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .evento-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    width: 250px;
+    text-align: left;
+  }
+  

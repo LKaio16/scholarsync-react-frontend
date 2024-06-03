@@ -1,0 +1,12 @@
+.trabalhos-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .trabalho-card {
+    flex: 0 0 calc(33.33% - 20px); /* Define a largura dos cards */
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  

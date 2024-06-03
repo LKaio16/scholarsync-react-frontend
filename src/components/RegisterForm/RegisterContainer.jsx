@@ -21,12 +21,12 @@ function RegisterContainer() {
   };
 
   async function handleSubmit(event) {
-    event.preventDefault(); // Isso impedirá o recarregamento da página
+    event.preventDefault(); 
     setError(null);
 
     if (password !== confirmPassword) {
       setError("Senhas não são iguais!");
-      return; // Interrompe a função se as senhas não coincidirem
+      return; 
     }
 
     try {
@@ -42,7 +42,6 @@ function RegisterContainer() {
       );
       console.log(response);
 
-      // Limpar todos os campos após o registro bem sucedido
       setName("");
       setEmail("");
       setPassword("");

@@ -5,7 +5,8 @@ import { useAuth } from '../context/AuthContext';
 const ProtectedRoute = ({ element }) => {
   const { token, user } = useAuth();
 
-  if (!token || !user) {
+  if (!token || !user.id) {
+    console.log(user)
     return <Navigate to="/login" />;
   }
 

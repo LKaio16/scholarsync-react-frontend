@@ -1,0 +1,38 @@
+.solucoes-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .solucoes-table th, .solucoes-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .solucoes-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .solucoes-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .solucoes-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .solucoes-table button {
+    padding: 6px 12px;
+    margin-right: 6px;
+    cursor: pointer;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .solucoes-table button:hover {
+    background-color: #0056b3;
+  }
+  
