@@ -1,38 +1,140 @@
+
+.moderator-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #444;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo dos cartões de trabalho */
+.trabalhos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.trabalho-card {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.trabalho-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.trabalho-card p {
+  margin-bottom: 15px;
+  font-size: 1em;
+  color: #666;
+}
+
+/* Estilo da tabela de soluções */
 .solucoes-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .solucoes-table th, .solucoes-table td {
-    border: 1px solid #dddddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .solucoes-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .solucoes-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .solucoes-table tr:hover {
-    background-color: #ddd;
-  }
-  
-  .solucoes-table button {
-    padding: 6px 12px;
-    margin-right: 6px;
-    cursor: pointer;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 14px;
-  }
-  
-  .solucoes-table button:hover {
-    background-color: #0056b3;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.solucoes-table th,
+.solucoes-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.solucoes-table th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.solucoes-table td button {
+  margin-top: 5px;
+}
+
+/* Estilo do modal */
+.ReactModal__Overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.ReactModal__Content {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ReactModal__Content h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.ReactModal__Content label {
+  font-weight: bold;
+}
+
+.ReactModal__Content input[type="text"],
+.ReactModal__Content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.ReactModal__Content button {
+  width: 48%;
+  margin-right: 4%;
+}
+.ReactModal__Content button:last-child {
+  margin-right: 0;
+}

@@ -28,12 +28,14 @@ function UserTrabalhosContainer() {
   const [trabalhosEnviados, setTrabalhosEnviados] = useState([]);
   const [user] = useState(getUserDetails());
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchTrabalhos();
   }, []);
 
   const fetchTrabalhos = async () => {
+    setLoading(true);
     try {
       const response = await axios.get('http://localhost:8080/api/trabalhos');
       const trabalhos = response.data;
@@ -48,13 +50,16 @@ function UserTrabalhosContainer() {
       
       setTrabalhosDisponiveis(trabalhosDisponiveis);
       setTrabalhosEnviados(trabalhosEnviados);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error('Erro ao buscar trabalhos', error);
       setError(error.response.data);
     }
   };
 
   const handleFileUpload = async (trabalhoId, file) => {
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append('file', file);
@@ -64,14 +69,16 @@ function UserTrabalhosContainer() {
         },
       });
       fetchTrabalhos();
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error('Erro ao fazer upload da solução', error);
       setError(error.response.data);
     }
   };
 
   return {
-    states: { trabalhosDisponiveis, trabalhosEnviados, user, error },
+    states: { trabalhosDisponiveis, trabalhosEnviados, user, error, loading },
     functions: { handleFileUpload, setError }
   };
 }

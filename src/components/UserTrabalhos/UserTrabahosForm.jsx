@@ -2,12 +2,14 @@ import React from 'react';
 import './UserTrabalhosForm.css';
 import UserTrabalhosContainer from './UserTrabalhosContainer';
 import Alert from "@mui/material/Alert";
+import Loading from "../Loading/Loading.js";
 
 function UserTrabalhosForm() {
   const { states, functions } = UserTrabalhosContainer();
 
   return (
     <div style={{ padding: '50px' }}>
+      {states.loading && <Loading />}
       <div className="user-dashboard">
         {states.error !== null && (
           <Alert

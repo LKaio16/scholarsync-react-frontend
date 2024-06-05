@@ -3,12 +3,14 @@ import Modal from 'react-modal';
 import './ModeratorTrabalhos.css';
 import ModeratorTrabalhosContainer from './ModeratorTrabalhosContainer.jsx';
 import Alert from "@mui/material/Alert";
+import Loading from "../Loading/Loading.js";
 
 function ModeratorTrabalhosForm() {
   const { states, functions } = ModeratorTrabalhosContainer();
 
   return (
     <div className="moderator-dashboard">
+      {states.loading && <Loading />}
       <center>
        {states.error !== null && (
           <Alert

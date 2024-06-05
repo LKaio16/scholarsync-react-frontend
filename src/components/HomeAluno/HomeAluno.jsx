@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React from 'react';
 import "./HomeAluno.css";
-import Header from "../Header/Header";
-import EventosForm from "../EventosForm/EventosForm";
+import HomeAlunoContainer from './HomeAlunoContainer';
 
-function HomeAluno() {
+const UserHome = () => {
+
+  const { states } = HomeAlunoContainer();
+
   return (
-    <div className="homeAluno-container">
-      <div className="homeAluno">
-        <Header />
+    <div  style={{padding:'50px'}}>
+      <div className="homeAluno-container">
+        <div className="homeAluno">
+          <div className="card">
+            <h3>Eventos Disponíveis</h3>
+            <p>{states.eventosNaoInscritos.length} eventos disponíveis</p>
+          </div>
+          <br/>
+          <div className="card">
+            <h3>Trabalhos Pendentes</h3>
+            <p>{states.trabalhosPendentes.length} trabalhos pendentes</p>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default HomeAluno;
+export default UserHome;
