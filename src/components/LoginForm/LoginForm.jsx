@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import Logo from "../../../src/assets/images/Logo-SchorlarSync.svg";
 import LoginContainer from "./LoginContainer";
-import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 
 function LoginForm() {

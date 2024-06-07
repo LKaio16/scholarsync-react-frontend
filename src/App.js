@@ -6,8 +6,8 @@ import Register from "./pages/Register";
 import Home from "./pages/home";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import PublicRoute from "./routes/PublicRoute";
-import HomeAluno from "./pages/HomeUser";
-import HomeUser from "./pages/HomeUser";
+import Eventos from "./pages/Eventos";
+import Trabalhos from "./pages/Trabalho";
 
 function App() {
   return (
@@ -20,10 +20,8 @@ function App() {
             element={<PublicRoute element={<Register />} />}
           />
           <Route path="/" element={<ProtectedRoute element={<Home />} />} />
-          <Route
-            path="/home"
-            element={<PublicRoute element={<HomeUser />} />}
-          />
+          <Route path="/eventos" element={<ProtectedRoute element={<Eventos />} />} />
+          <Route path="/trabalhos" element={<ProtectedRoute element={<Trabalhos />} />} />
         </Routes>
       </Router>
     </AuthProvider>

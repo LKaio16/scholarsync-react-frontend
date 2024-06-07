@@ -8,16 +8,28 @@ function LoginContainer() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const direcionaRegister = (event) => {
     navigate("/register");
   };
 
+
   async function handleSubmit(event) {
     try {
       event.preventDefault();
+
+      if (username === "") {
+        setError("Nome de usuário não pode estar vazio!");
+        return; 
+      }
+
+      if (password === "") {
+        setError("A senha não pode estar vazia!");
+        return; 
+      }
+
       const response = await axios.post(
         "http://localhost:8080/api/auth/signin",
         {
