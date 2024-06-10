@@ -5,14 +5,13 @@ import Header from "../components/Header/Header";
 function Eventos() {
   return (
     <>
-      <div className="homeAluno-container">
-        <div className="homeAluno">
+      <div className="container-geral">
+        <div className="container-conteudo">
           <Header />
           <EventosForm />
         </div>
       </div>
     </>
-
   );
 }
 

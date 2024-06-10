@@ -21,12 +21,12 @@ function RegisterContainer() {
   };
 
   async function handleSubmit(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     setError(null);
 
     if (password !== confirmPassword) {
       setError("Senhas não são iguais!");
-      return; 
+      return;
     }
 
     try {
@@ -49,6 +49,8 @@ function RegisterContainer() {
       setRole("");
       setUsername("");
       setError(null);
+
+      navigate("/login");
     } catch (error) {
       setError(error.response.data);
     }

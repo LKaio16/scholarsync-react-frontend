@@ -1,6 +1,6 @@
-import React from 'react';
-import './UserTrabalhosForm.css';
-import UserTrabalhosContainer from './UserTrabalhosContainer';
+import React from "react";
+import "./UserTrabalhosForm.css";
+import UserTrabalhosContainer from "./UserTrabalhosContainer";
 import Alert from "@mui/material/Alert";
 import Loading from "../Loading/Loading.js";
 
@@ -8,13 +8,13 @@ function UserTrabalhosForm() {
   const { states, functions } = UserTrabalhosContainer();
 
   return (
-    <div style={{ padding: '50px' }}>
+    <div style={{ padding: "50px" }}>
       {states.loading && <Loading />}
       <div className="user-dashboard">
         {states.error !== null && (
           <Alert
             severity="error"
-            style={{ marginBottom: "20px", borderRadius: "40px", width:'70%' }}
+            style={{ marginBottom: "20px", borderRadius: "40px", width: "70%" }}
           >
             {states.error}
           </Alert>
@@ -25,10 +25,19 @@ function UserTrabalhosForm() {
             <div key={trabalho.id} className="trabalho-card">
               <h2>{trabalho.titulo}</h2>
               <p>{trabalho.descricao}</p>
+
               <input
+                name="file"
+                id="file"
+                style={{ display: "none" }}
                 type="file"
-                onChange={(e) => functions.handleFileUpload(trabalho.id, e.target.files[0])}
+                onChange={(e) =>
+                  functions.handleFileUpload(trabalho.id, e.target.files[0])
+                }
               />
+              <label for="file" className="button-padrao">
+                Escolher arquivo
+              </label>
             </div>
           ))}
         </div>
@@ -43,8 +52,16 @@ function UserTrabalhosForm() {
                 .filter((solucao) => solucao.aluno === states.user.username)
                 .map((solucao) => (
                   <div key={solucao.id} className="solucao-info">
-                    <p><strong>Nota:</strong> {solucao.notaAvaliacao !== null ? solucao.notaAvaliacao : ''}</p>
-                    <p><strong>Comentário de Avaliação:</strong> {solucao.comentarioAvaliacao}</p>
+                    <p>
+                      <strong>Nota:</strong>{" "}
+                      {solucao.notaAvaliacao !== null
+                        ? solucao.notaAvaliacao
+                        : ""}
+                    </p>
+                    <p>
+                      <strong>Comentário de Avaliação:</strong>{" "}
+                      {solucao.comentarioAvaliacao}
+                    </p>
                   </div>
                 ))}
             </div>

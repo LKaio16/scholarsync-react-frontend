@@ -33,7 +33,7 @@
   width: 60%;
 }
 
-label {
+.login-container label {
   display: block;
   text-align: left;
   margin-bottom: 5px;
@@ -41,7 +41,7 @@ label {
   font-weight: normal;
 }
 
-input {
+.login-container input {
   width: 100%;
   padding: 15px;
   margin-bottom: 20px;
@@ -67,7 +67,7 @@ input {
   font-weight: bold;
 }
 
-button:hover {
+.login-container button:hover {
   background-color: #0056b3;
 }
 
