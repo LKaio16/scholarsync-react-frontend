@@ -132,22 +132,28 @@ function EventosContainer() {
   const createEvento = async (e) => {
     setLoading(true);
     e.preventDefault();
+
+    // Verifica e ajusta as datas de início e fim, caso estejam nulas
+    const dataAtual = new Date();
+    const dataInicioValida = dataInicio || dataAtual;
+    const dataFimValida = dataFim || dataAtual;
+
     try {
       await axios.post("http://localhost:8080/api/eventos", {
         titulo,
         descricao,
         localizacao,
-        dataInicio,
-        dataFim,
+        dataInicio: dataInicioValida.toISOString(),
+        dataFim: dataFimValida.toISOString(),
         tipo,
       });
       fetchEventos();
       resetForm();
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
       console.error("Erro ao criar evento", error);
       setError(error.response.data);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -270,6 +276,7 @@ function EventosContainer() {
           responseType: "blob",
         }
       );
+      console.log(response);
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
