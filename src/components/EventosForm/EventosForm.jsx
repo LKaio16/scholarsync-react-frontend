@@ -197,6 +197,13 @@ function EventosForm() {
 
                       <button
                         className="button-padrao"
+                        onClick={() => functions.deleteEvento(evento.id)}
+                      >
+                        Deletar
+                      </button>
+
+                      <button
+                        className="button-padrao"
                         onClick={() => {
                           functions.handleOpenModal(evento);
                         }}

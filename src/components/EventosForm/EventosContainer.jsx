@@ -226,6 +226,19 @@ function EventosContainer() {
     }
   };
 
+  const deleteEvento = async (id) => {
+    setLoading(true);
+    try {
+      await axios.delete(`http://localhost:8080/api/eventos/${id}`);
+      fetchEventos(); // Atualiza a lista de eventos após a exclusão
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error("Erro ao deletar evento", error);
+      setError(error.response.data);
+    }
+  };
+
   const registrarFrequencia = async (eventoId, alunoId) => {
     setLoading(true);
     try {
@@ -340,6 +353,7 @@ function EventosContainer() {
       handleChange,
       handleOpenModal,
       handleCloseModal,
+      deleteEvento,
     },
   };
 }
